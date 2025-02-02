@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @export var speed : int = 2
-@export var health : int = 13 + (Global.wave * 2)
+@export var health : int = 12 + (Global.wave * 3)
 
 @onready var Path : PathFollow3D = get_parent()
 
