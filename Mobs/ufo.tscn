@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccvtn3srfefj7"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_o4ftf"]
+[ext_resource type="ArrayMesh" uid="uid://ogrx6b7d11sy" path="res://Models/enemy_ufoRed.obj" id="1_rwgyx"]
+[ext_resource type="PackedScene" uid="uid://01u3l3yc32w5" path="res://Scenes/health_bar_3d.tscn" id="3_d7jo3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_38gl1"]
+height = 0.664241
+
+[node name="UFO" type="PathFollow3D"]
+
+[node name="Enemy" type="CharacterBody3D" parent="." groups=["Enemy"]]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_o4ftf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy"]
+mesh = ExtResource("1_rwgyx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.339478, 0)
+shape = SubResource("CylinderShape3D_38gl1")
+
+[node name="HealthBar3D" parent="Enemy" instance=ExtResource("3_d7jo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.818874, 0)

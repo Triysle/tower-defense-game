@@ -1,0 +1,470 @@
+[gd_scene load_steps=20 format=3 uid="uid://d3ksx5nu5ptkj"]
+
+[ext_resource type="Script" path="res://Scripts/World.gd" id="1_4fr8s"]
+[ext_resource type="PackedScene" uid="uid://cdupjnf1t7wd6" path="res://Tiles/tile_start.tscn" id="1_ficc4"]
+[ext_resource type="PackedScene" uid="uid://3g1yslbdhe7x" path="res://Tiles/tile_straight.tscn" id="2_2rcqn"]
+[ext_resource type="PackedScene" uid="uid://dgs11jaoxqhyj" path="res://Tiles/tile_corner.tscn" id="3_edbgj"]
+[ext_resource type="PackedScene" uid="uid://dkhrxnia83sto" path="res://Tiles/tile_end.tscn" id="4_jtqxc"]
+[ext_resource type="PackedScene" uid="uid://dxvnild0pvv7c" path="res://Tiles/tile_grass.tscn" id="5_6agqj"]
+[ext_resource type="ArrayMesh" uid="uid://d1vr4ssy6e652" path="res://Models/towerRound_sampleF.obj" id="7_3gpqt"]
+[ext_resource type="ArrayMesh" uid="uid://ce7c8qxca6tri" path="res://Models/woodStructure.obj" id="8_4x6hk"]
+[ext_resource type="PackedScene" uid="uid://01u3l3yc32w5" path="res://Scenes/health_bar_3d.tscn" id="8_k2118"]
+[ext_resource type="Material" uid="uid://6ylqpe5m2pwi" path="res://Materials/red.tres" id="9_6o1i1"]
+[ext_resource type="Texture2D" uid="uid://rn461o8roeo0" path="res://Materials/weapon_cannon_S.png" id="10_3f7l5"]
+[ext_resource type="Texture2D" uid="uid://bl7761ggrfy4a" path="res://Materials/weapon_blaster_S.png" id="13_f1iis"]
+
+[sub_resource type="Curve3D" id="Curve3D_1hvw0"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.509331, 0.3, 1.47611, 0, 0, 0, 0, 0, 0, 0.536999, 0.3, -1.50637, 0, 0, 0, 0, 0, 0, 3.47166, 0.3, -1.53119, 0, 0, 0, 0, 0, 0, 3.4505, 0.3, -6.48589, 0, 0, 0, 0, 0, 0, 0.534122, 0.3, -6.54922, 0, 0, 0, 0, 0, 0, 0.503743, 0.3, -9.48428),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Environment" id="Environment_eusey"]
+background_mode = 1
+background_color = Color(0.506963, 0.728665, 0.95639, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c01j3"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 100.0
+content_margin_bottom = 10.0
+bg_color = Color(0.568973, 0.568973, 0.568973, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b7tsv"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 100.0
+content_margin_bottom = 10.0
+bg_color = Color(0.362829, 0.362829, 0.362829, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_awrsv"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.568973, 0.568973, 0.568973, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agldc"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.362829, 0.362829, 0.362829, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mgp1"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.362829, 0.362829, 0.362829, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_4fr8s")
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="Tile_Start" parent="Map" instance=ExtResource("1_ficc4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, 0, 1.5)
+
+[node name="Tile_Straight" parent="Map" instance=ExtResource("2_2rcqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+
+[node name="Tile_Corner" parent="Map" instance=ExtResource("3_edbgj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1.5)
+
+[node name="Tile_Straight2" parent="Map" instance=ExtResource("2_2rcqn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5, 0, -1.5)
+
+[node name="Tile_Corner2" parent="Map" instance=ExtResource("3_edbgj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.5, 0, -1.5)
+
+[node name="Tile_Straight3" parent="Map" instance=ExtResource("2_2rcqn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0, -1.5)
+
+[node name="Tile_Straight4" parent="Map" instance=ExtResource("2_2rcqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -2.5)
+
+[node name="Tile_Straight5" parent="Map" instance=ExtResource("2_2rcqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -3.5)
+
+[node name="Tile_Corner3" parent="Map" instance=ExtResource("3_edbgj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.5, 0, -6.5)
+
+[node name="Tile_Straight6" parent="Map" instance=ExtResource("2_2rcqn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0, -6.5)
+
+[node name="Tile_Straight7" parent="Map" instance=ExtResource("2_2rcqn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5, 0, -6.5)
+
+[node name="Tile_Corner4" parent="Map" instance=ExtResource("3_edbgj")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0, -6.5)
+
+[node name="Tile_Straight8" parent="Map" instance=ExtResource("2_2rcqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -7.5)
+
+[node name="Tile_Straight9" parent="Map" instance=ExtResource("2_2rcqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -8.5)
+
+[node name="Tile_Straight10" parent="Map" instance=ExtResource("2_2rcqn")]
+
+[node name="Tile_End" parent="Map" instance=ExtResource("4_jtqxc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -9.5)
+
+[node name="Tile_Grass" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -0.5)
+
+[node name="Tile_Grass2" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -0.5)
+
+[node name="Tile_Grass3" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -0.5)
+
+[node name="Tile_Grass4" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.5)
+
+[node name="Tile_Grass5" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.5)
+
+[node name="Tile_Grass6" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.5)
+
+[node name="Tile_Grass7" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 2.5)
+
+[node name="Tile_Grass8" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 2.5)
+
+[node name="Tile_Grass9" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 1.5)
+
+[node name="Tile_Grass10" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.5)
+
+[node name="Tile_Grass11" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.5)
+
+[node name="Tile_Grass12" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -1.5)
+
+[node name="Tile_Straight11" parent="Map" instance=ExtResource("2_2rcqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -5.5)
+
+[node name="Tile_Straight12" parent="Map" instance=ExtResource("2_2rcqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -4.5)
+
+[node name="Tile_Grass13" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -2.5)
+
+[node name="Tile_Grass14" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -2.5)
+
+[node name="Tile_Grass15" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -2.5)
+
+[node name="Tile_Grass16" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+
+[node name="Tile_Grass17" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -0.5)
+
+[node name="Tile_Grass18" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -1.5)
+
+[node name="Tile_Grass19" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -2.5)
+
+[node name="Tile_Grass20" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -3.5)
+
+[node name="Tile_Grass21" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -3.5)
+
+[node name="Tile_Grass22" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -4.5)
+
+[node name="Tile_Grass23" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -5.5)
+
+[node name="Tile_Grass24" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -4.5)
+
+[node name="Tile_Grass25" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -5.5)
+
+[node name="Tile_Grass26" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -6.5)
+
+[node name="Tile_Grass27" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -5.5)
+
+[node name="Tile_Grass28" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -5.5)
+
+[node name="Tile_Grass29" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -5.5)
+
+[node name="Tile_Grass30" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -6.5)
+
+[node name="Tile_Grass31" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -7.5)
+
+[node name="Tile_Grass32" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -8.5)
+
+[node name="Tile_Grass33" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -9.5)
+
+[node name="Tile_Grass34" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -10.5)
+
+[node name="Tile_Grass35" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -10.5)
+
+[node name="Tile_Grass36" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -10.5)
+
+[node name="Tile_Grass37" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -9.5)
+
+[node name="Tile_Grass38" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -8.5)
+
+[node name="Tile_Grass39" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -7.5)
+
+[node name="Tile_Grass40" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -7.5)
+
+[node name="Tile_Grass41" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -7.5)
+
+[node name="Tile_Grass42" parent="Map" instance=ExtResource("5_6agqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -7.5)
+
+[node name="TowerRoundSampleF" type="MeshInstance3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.2, -10.5)
+mesh = ExtResource("7_3gpqt")
+skeleton = NodePath("../../CanvasLayer/UI/ShopPanel/VBoxContainer")
+
+[node name="HealthBar3D" parent="Map/TowerRoundSampleF" instance=ExtResource("8_k2118")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Path" type="Path3D" parent="."]
+curve = SubResource("Curve3D_1hvw0")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.331552, -0.735535, 0.590814, 0, 0.626236, 0.779634, -0.943437, -0.258489, 0.20763, 6.41997, 4.9838, -0.909717)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -4)
+light_energy = 5.0
+omni_range = 20.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_eusey")
+
+[node name="Indicator" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.2, -0.5)
+mesh = ExtResource("8_4x6hk")
+surface_material_override/0 = ExtResource("9_6o1i1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShopPanel" type="Panel" parent="CanvasLayer/UI"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/ShopPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CannonButton" type="Button" parent="CanvasLayer/UI/ShopPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxFlat_c01j3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b7tsv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b7tsv")
+text = "100 Gold"
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/ShopPanel/VBoxContainer/CannonButton"]
+layout_mode = 0
+offset_right = 93.0
+offset_bottom = 100.0
+texture = ExtResource("10_3f7l5")
+expand_mode = 2
+
+[node name="BlasterButton" type="Button" parent="CanvasLayer/UI/ShopPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxFlat_c01j3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b7tsv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b7tsv")
+text = "250 Gold"
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/ShopPanel/VBoxContainer/BlasterButton"]
+layout_mode = 0
+offset_right = 93.0
+offset_bottom = 100.0
+texture = ExtResource("13_f1iis")
+expand_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/UI/ShopPanel/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CancelButton" type="Button" parent="CanvasLayer/UI/ShopPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxFlat_awrsv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_agldc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3mgp1")
+text = "Cancel"
+
+[node name="NextWaveButton" type="Button" parent="CanvasLayer/UI"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 18.0
+offset_top = 582.0
+offset_right = 218.0
+offset_bottom = 632.0
+text = "Next Wave"
+
+[node name="Gold" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 16.0
+offset_right = 171.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 35
+text = "Gold: 250"
+vertical_alignment = 1
+
+[node name="Wave" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 76.0
+offset_right = 171.0
+offset_bottom = 125.0
+theme_override_font_sizes/font_size = 35
+text = "Wave: 0"
+vertical_alignment = 1
+
+[node name="GameOverPanel" type="Panel" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer/UI/GameOverPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "GAME OVER!"
+
+[node name="PlayAgainButton" type="Button" parent="CanvasLayer/UI/GameOverPanel"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 87.0
+offset_right = 100.0
+offset_bottom = 137.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Play Again"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/UI/GameOverPanel"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 158.0
+offset_right = 100.0
+offset_bottom = 208.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Quit"
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/UI/ShopPanel/VBoxContainer/CannonButton" to="." method="_on_cannon_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/ShopPanel/VBoxContainer/BlasterButton" to="." method="_on_blaster_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/ShopPanel/VBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/GameOverPanel/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/GameOverPanel/QuitButton" to="." method="_on_quit_button_pressed"]
